@@ -6,6 +6,7 @@ import ReplyForm from "./ReplyForm";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "react-toastify";
 import { FaEdit, FaReply, FaSave, FaTimes, FaTrash } from "react-icons/fa";
+import { countNestedReplies } from "../utils/commentUtils"; // Import the utility function
 
 const Comment = ({ comment, parentId = null }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -137,7 +138,7 @@ const Comment = ({ comment, parentId = null }) => {
           </AnimatePresence>
         </div>
         <span className="text-sm text-gray-500 dark:text-gray-400">
-          {comment.replies?.length || 0} replies
+          {countNestedReplies(comment)} replies
         </span>
       </div>
       <AnimatePresence>
