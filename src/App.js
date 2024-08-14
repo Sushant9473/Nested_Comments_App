@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import CommentForm from "./components/CommentForm";
 import CommentList from "./components/CommentList";
 import ThemeToggle from "./components/ThemeToggle";
+import ScrollToTop from "./components/ScrollToTop";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -67,6 +68,7 @@ function App() {
             theme={isDark ? "dark" : "light"}
           />
         </motion.div>
+        <ScrollToTop />
       </AnimatePresence>
     </Provider>
   );
