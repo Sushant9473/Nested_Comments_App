@@ -9,6 +9,10 @@ A modern, interactive nested comments application built with React, Redux, and e
 
 
 
+https://github.com/user-attachments/assets/961ea5e6-d876-41ba-a731-181d425ee02f
+
+
+
 ## ✨ Features
 
 - 📝 Create, edit, and delete comments
