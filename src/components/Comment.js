@@ -24,10 +24,8 @@ const Comment = ({ comment, parentId = null }) => {
   };
 
   const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete this comment?")) {
-      dispatch(deleteComment(comment.id, parentId));
-      toast.info("Comment deleted.");
-    }
+    dispatch(deleteComment(comment.id, parentId));
+    toast.info("Comment deleted.");
   };
 
   return (
