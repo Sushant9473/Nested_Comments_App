@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Comment from "./Comment";
+import { motion, AnimatePresence } from "framer-motion";
 
 const CommentList = () => {
   const comments = useSelector((state) => state.comments);
@@ -36,28 +37,49 @@ const CommentList = () => {
   };
 
   return (
-    <div>
-      <div className="mb-4">
-        <label htmlFor="sort" className="mr-2">
-          Sort by:
-        </label>
-        <select
-          id="sort"
-          value={sortType}
-          onChange={handleSortChange}
-          className="p-2 border rounded"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="mt-12"
+    >
+      <div className="mb-8 flex items-center justify-between bg-gradient-to-r from-blue-100 to-purple-100 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-md">
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+          Comments
+        </h2>
+        <div className="flex items-center">
+          <label
+            htmlFor="sort"
+            className="mr-3 text-gray-700 dark:text-gray-300 font-semibold hidden sm:block"
+          >
+            Sort by:
+          </label>
+          <motion.select
+            whileHover={{ scale: 1.05 }}
+            id="sort"
+            value={sortType}
+            onChange={handleSortChange}
+            className="p-2 border rounded-md focus:ring-2 focus:ring-blue-300 focus:border-blue-500 transition-all duration-300 bg-white dark:bg-gray-700 dark:text-white dark:border-gray-600"
+          >
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="mostReplies">Most Replies</option>
+          </motion.select>
+        </div>
+      </div>
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="space-y-8"
         >
-          <option value="newest">Newest First</option>
-          <option value="oldest">Oldest First</option>
-          <option value="mostReplies">Most Replies</option>
-        </select>
-      </div>
-      <div className="space-y-4">
-        {sortedComments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
-        ))}
-      </div>
-    </div>
+          {sortedComments.map((comment) => (
+            <Comment key={comment.id} comment={comment} />
+          ))}
+        </motion.div>
+      </AnimatePresence>
+    </motion.div>
   );
 };
 
