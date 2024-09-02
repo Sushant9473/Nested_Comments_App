@@ -7,11 +7,7 @@
 
 A modern, interactive nested comments application built with React, Redux, and enhanced with beautiful animations using Framer Motion.
 
-
-
 https://github.com/user-attachments/assets/961ea5e6-d876-41ba-a731-181d425ee02f
-
-
 
 ## ✨ Features
 
@@ -33,21 +29,25 @@ https://github.com/user-attachments/assets/961ea5e6-d876-41ba-a731-181d425ee02f
 ### Installation
 
 1. Clone the repository:
+
    ```sh
    git clone https://github.com/yourusername/nested-comments-app.git
    ```
 
 2. Navigate to the project directory:
+
    ```sh
    cd nested-comments-app
    ```
 
 3. Install the dependencies:
+
    ```sh
    npm install
    ```
 
 4. Start the development server:
+
    ```sh
    npm start
    ```
@@ -87,8 +87,6 @@ nested-comments-app/
 │   │   ├── commentUtils.js
 │   │   ├── dateUtils.js
 │   │   └── validationUtils.js
-│   ├── hooks/
-│   │   └── useLocalStorage.js
 │   ├── App.js
 │   └── index.js
 ├── package.json
